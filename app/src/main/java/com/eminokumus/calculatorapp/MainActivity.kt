@@ -25,6 +25,7 @@ class MainActivity : AppCompatActivity() {
         setClearOnClickListener()
         setDotOnClickListener()
         setOperationsOnClickListeners()
+        setEqualOnClickListener()
     }
 
     private fun setDigitsOnClickListeners() {
@@ -51,11 +52,13 @@ class MainActivity : AppCompatActivity() {
 
     private fun setOperationsOnClickListeners(){
         binding.run {
-            btnDivide.setOnClickListener{viewModel.onOperationClicked(btnDivide.text)}
-            btnMultiply.setOnClickListener{viewModel.onOperationClicked(btnMultiply.text)}
-            btnMinus.setOnClickListener{viewModel.onOperationClicked(btnMinus.text)}
-            btnPlus.setOnClickListener{viewModel.onOperationClicked(btnPlus.text)}
+            btnDivide.setOnClickListener{viewModel.onOperationClicked(btnDivide.text.toString())}
+            btnMultiply.setOnClickListener{viewModel.onOperationClicked(btnMultiply.text.toString())}
+            btnMinus.setOnClickListener{viewModel.onOperationClicked(btnMinus.text.toString())}
+            btnPlus.setOnClickListener{viewModel.onOperationClicked(btnPlus.text.toString())}
         }
-
+    }
+    private fun setEqualOnClickListener(){
+        binding.btnEqual.setOnClickListener{viewModel.onEqualClicked()}
     }
 }
